@@ -5,21 +5,31 @@ Dado um inteiro positivo n, verificar se n é perfeito.*/
 #include <stdio.h>
 #include <stdlib.h>
 
-double fatorial(int x){
-  double fat;
-  if ( x <= 1 ){
-      return (1);
-  }else{
-    fat = x * fatorial(x - 1);
-    return (fat);
-  }
+void perfeito(int a){
+    int x =0;
+    for (int i = a/2; i>0; i--){
+        if(a % i == 0){
+            x += i;
+        }
+    }
+    if(x == a){
+      printf("%d e perfeito\n", a);  
+    }else{
+      printf("%d nao e perfeito\n", a); 
+    }   
 }
 
 int main() {
   int a;
   printf("Digite o valor\n");
   scanf("%d", &a);
-  printf("%.0lf\n", fatorial(a));
+  if(a == 1){
+      printf("1 e perfeito\n");
+  }else if(a<1){
+      printf("Numero Invalido\n");
+  }else{
+      perfeito(a);
+  }  
   system("pause");  
   return 0;  
 }
