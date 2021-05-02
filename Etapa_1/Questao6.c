@@ -5,8 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
 void decomposicao(int valor){
     int a[] = {100, 50, 20, 10, 5, 2, 1};
     printf("As notas necessarias sao:\n");
