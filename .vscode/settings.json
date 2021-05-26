@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "locale.h": "c"
+        "locale.h": "c",
+        "stdio.h": "c",
+        "string.h": "c",
+        "lista.h": "c",
+        "typeinfo": "c",
+        "conio.h": "c"
     }
 }
