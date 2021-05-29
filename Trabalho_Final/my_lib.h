@@ -20,6 +20,7 @@ void menu(){
 		printf("2-	Consultar um produto\n");
 		printf("3-	Alterar dados de um produto\n");
 		printf("4-	Imprimir em tela lista de produtos\n");	
+		printf("5-	Deletar produto\n");
 		printf("0-	Sair\n");
 }
 
@@ -36,7 +37,6 @@ void menu_alterar(){
 	printf("3-	Alterar Preco do produto\n");
 	printf("0-	Sair\n");
 }
-
 
 void print_produto(Produto produto){
 	printf("%s   ",produto.nome);

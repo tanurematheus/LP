@@ -70,6 +70,15 @@ int tamanho_arquivo(){
 	return size;
 }
 
+void ler_arquivo(Produto *lista_produtos, int size){
+	if(size){
+		lista_produtos = malloc(size * sizeof(Produto));
+		ler_produtos(lista_produtos);
+	}else{
+		lista_produtos=NULL;
+	}
+}
+
 void ler_produtos(Produto *lista_produtos){	
 	int y = 0;
 	FILE * arq = fopen("dados.bin", "rb");	
@@ -168,6 +177,17 @@ int consultar_produto(Produto *lista_produtos, int size){
 			}
 		}			
 		return -1;	
+}
+
+void deletar_produto(Produto *lista_produtos, int consulta, int size){
+	FILE * arq = fopen("dados.bin","wb");
+
+	for(int i=0; i<size;i++){
+		if(i!=consulta){
+			fwrite(&lista_produtos[i], sizeof(Produto), 1, arq);
+		}
+	}
+	fclose(arq);	
 }
 
 #endif

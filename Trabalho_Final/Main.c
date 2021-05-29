@@ -3,6 +3,7 @@
 2-	Consultar um produto
 3-	Alterar dados de um produto
 4-	Imprimir em tela lista de produtos.
+5-  Deletar produto.
 0-	Sair*/
 
 #include <stdio.h>
@@ -14,15 +15,12 @@
 #include "manipular_arquivos.h"
 
 int main(){
-	int x=1, size=0, consulta;
-	Produto *lista_produtos = NULL;
+	int x=1, size, consulta;
+	Produto *lista_produtos;
 	
 	size=tamanho_arquivo();
 
-	if(size){
-		lista_produtos = malloc(size * sizeof(Produto));
-		ler_produtos(lista_produtos);
-	}	
+	ler_arquivo(lista_produtos,size);		
 
 	while(x){
 		menu();		
@@ -61,6 +59,18 @@ int main(){
 			for(int i=0;i<size;i++){
 				print_produto(lista_produtos[i]);
 			}			
+			break;
+		case deletar:
+			printf("Informe o codigo do produto para deletar\n");
+			consulta = consultar_produto(lista_produtos, size);
+			if(consulta == -1){
+				printf("Produto nao encontrado");
+			}else{
+				deletar_produto(lista_produtos, consulta, size);
+				size--;
+				ler_arquivo(lista_produtos,size);	
+				printf("produto deletado\n");
+			}	
 			break;
 		case sair:
 			printf("Saindo...\n");
