@@ -20,7 +20,12 @@ int main(){
 	
 	size=tamanho_arquivo();
 
-	ler_arquivo(lista_produtos,size);		
+	if(size){
+		lista_produtos = malloc(size * sizeof(Produto));
+		ler_produtos(lista_produtos);
+	}else{
+		lista_produtos=NULL;
+	}		
 
 	while(x){
 		menu();		
@@ -68,7 +73,12 @@ int main(){
 			}else{
 				deletar_produto(lista_produtos, consulta, size);
 				size--;
-				ler_arquivo(lista_produtos,size);	
+				if(size){
+					lista_produtos = malloc(size * sizeof(Produto));
+					ler_produtos(lista_produtos);
+				}else{
+					lista_produtos=NULL;
+				}	
 				printf("produto deletado\n");
 			}	
 			break;

@@ -70,15 +70,6 @@ int tamanho_arquivo(){
 	return size;
 }
 
-void ler_arquivo(Produto *lista_produtos, int size){
-	if(size){
-		lista_produtos = malloc(size * sizeof(Produto));
-		ler_produtos(lista_produtos);
-	}else{
-		lista_produtos=NULL;
-	}
-}
-
 void ler_produtos(Produto *lista_produtos){	
 	int y = 0;
 	FILE * arq = fopen("dados.bin", "rb");	
